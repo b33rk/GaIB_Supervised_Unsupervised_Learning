@@ -10,6 +10,7 @@ Bonus yang diimplementasikan:
 - Polynomial dan rbf kernel pada SVM Regression
 - Tanh activation function pada ANN
 - Menggunakan automatic differentation saat back propagation pada ANN
+- Adams optimizer pada ANN
 - BONUS 1 - Implementasi Gradient Boost dan XGBoost
 
 Unsupervised Learning (Bagian 3)</p>

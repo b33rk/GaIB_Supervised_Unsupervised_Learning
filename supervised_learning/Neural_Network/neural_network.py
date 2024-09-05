@@ -1,4 +1,5 @@
 import numpy as np
+from dense_layer import DenseLayer
 # from loss_function import LossFunction
 
 # ANN Class
@@ -29,9 +30,16 @@ class NeuralNetwork:
         for layer in reversed(self.layers):
             output = layer.backward(output, self.learning_rate)
     
-    def train(self, X, Y, epochs = 10000, learning_rate = 0.1, batch_size = 50, softmax_logloss=False, isOne_hot=False):
+    def init_optimizer(self):
+        for layer in self.layers:
+            if isinstance(layer, DenseLayer):
+                layer.optimizer = self.optimizer
+    
+    def train(self, X, Y, epochs = 10000, optimizer = "gradient_descent", learning_rate = 0.1, batch_size = 50, softmax_logloss=False, isOne_hot=False):
+        self.optimizer = optimizer
         self.learning_rate = learning_rate
         self.batch_size = batch_size
+        self.init_optimizer()
         n_batches = int(np.ceil(X.shape[0] / batch_size))
         y = Y.copy()
         if isOne_hot:
@@ -65,7 +73,7 @@ class NeuralNetwork:
                 output = self.forward(X)
                 pred = get_predictions(output)
                 print(f'Epoch {epoch}, Loss: {total_error}')
-                if (one_hot):
+                if (isOne_hot):
                     print(f'Epoch {epoch}, accuracy: {get_accuracy(pred, y)}')
     
     def predict(self, X):

@@ -12,6 +12,7 @@ Bonus yang diimplementasikan:
 - Menggunakan automatic differentation saat back propagation pada ANN
 - Adams optimizer pada ANN
 - BONUS 1 - Implementasi Gradient Boost dan XGBoost
+- BONUS 2 (tidak full) - Hanya implementasi Conv layer, MaxPooling, Ketika dijalankan menggunakan sebuah arsitektur, masih sangat lambat dan akurasinya sangat jelek
 
 Unsupervised Learning (Bagian 3)</p>
 [v] K-MEANS</p>
